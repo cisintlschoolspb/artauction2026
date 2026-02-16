@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third Annual Student Art Auction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c1810;
+            --secondary-color: #8b4513;
+            --accent-color: #d4af37;
+            --background-light: #faf8f5;
+            --background-white: #ffffff;
+            --text-primary: #2c1810;
+            --text-secondary: #6b5b4f;
+            --border-color: #e8e1d8;
+            --shadow: 0 8px 32px rgba(44, 24, 16, 0.1);
+            --shadow-hover: 0 12px 48px rgba(44, 24, 16, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--background-light) 0%, var(--background-white) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--background-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+        }
+
+        .logo h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: -0.02em;
+        }
+
+        .logo p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: -0.2rem;
+            font-weight: 300;
+        }
+
+        .auction-info {
+            text-align: right;
+        }
+
+        .auction-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .contact-btn:hover {
+            background: #b8941f;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0 3rem;
+            text-align: center;
+            background: var(--background-white);
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .charity-banner {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .charity-banner h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Featured Artwork */
+        .featured-section {
+            padding: 4rem 0;
+            background: var(--background-light);
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .featured-artwork {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .featured-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .featured-image:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .featured-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .featured-info {
+            padding: 2rem;
+        }
+
+        .featured-info h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .artist-info {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .artwork-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .bid-info {
+            background: var(--background-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--accent-color);
+        }
+
+        .bid-amount {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery Grid */
+        .gallery-section {
+            padding: 4rem 0;
+            background: var(--background-white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .artwork-card {
+            background: var(--background-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .artwork-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .artwork-image {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+        }
+
+        .artwork-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .artwork-card:hover .artwork-image img {
+            transform: scale(1.05);
+        }
+
+        .artwork-details {
+            padding: 1.5rem;
+        }
+
+        .artwork-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .artwork-meta {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .artist-name {
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        .artwork-description-short {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .card-bid-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .starting-bid {
+            font-weight: 600;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .medium {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: var(--background-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section p, .footer-section a {
+            color: #e8e1d8;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .featured-artwork {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Animation on scroll */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Student Art Auction</h1>
+                    <p>Third Annual Exhibition</p>
+                </div>
+                <div class="auction-info">
+                    <p><strong>Bidding Open:</strong> March 15-22, 2026</p>
+                    <p><strong>Viewing:</strong> School Gallery, Mon-Fri 8am-4pm</p>
+                    <a href="#contact" class="contact-btn">Place a Bid</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Young Artists, Big Dreams</h1>
+                <p>Discover extraordinary creativity from our talented students. Every purchase supports both emerging artists and our community charity partner.</p>
+                <div class="charity-banner">
+                    <h3>Supporting Local Food Bank</h3>
+                    <p>50% of proceeds benefit our students, 50% goes to the Community Food Bank to help families in need.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-section">
+            <div class="container">
+                <h2 class="section-title">Featured Artwork</h2>
+                <div class="featured-artwork fade-in-up">
+                    <div class="featured-image">
+                        <img src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=600&h=400&fit=crop" alt="Featured artwork" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                    </div>
+                    <div class="featured-info">
+                        <h3>"Ocean Dreams"</h3>
+                        <div class="artist-info">
+                            <strong>Sarah Martinez</strong> • Grade 11 • Acrylic on Canvas
+                        </div>
+                        <p class="artwork-description">
+                            A stunning seascape that captures the movement and energy of ocean waves through bold brushstrokes and a vibrant color palette. Sarah's technique shows remarkable maturity and emotional depth.
+                        </p>
+                        <div class="bid-info">
+                            <div class="bid-amount">Starting Bid: $85</div>
+                            <p>This piece represents hours of careful observation and artistic growth. A true centerpiece for any collection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">All Artworks</h2>
+                <div class="gallery-grid">
+                    <!-- Artwork Card 1 -->
+                    <div class="artwork-card fade-in-up">
+                        <div class="artwork-image">
+                            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=280&fit=crop" alt="Abstract painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                        </div>
+                        <div class="artwork-details">
+                            <h3 class="artwork-title">"City Lights"</h3>
+                            <div class="artwork-meta">
+                                <span class="artist-name">Alex Johnson</span>
+                                <span>Grade 9</span>
+                            </div>
+                            <p class="artwork-description-short">
+                                An abstract interpretation of urban nightlife using bold geometric shapes and neon-inspired colors.
+                            </p>
+                            <div class="card-bid-info">
+                                <span class="starting-bid">Starting: $45</span>
+                                <span class="medium">Watercolor</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artwork Card 2 -->
+                    <div class="artwork-card fade-in-up">
+                        <div class="artwork-image">
+                            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=280&fit=crop" alt="Portrait painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                        </div>
+                        <div class="artwork-details">
+                            <h3 class="artwork-title">"Grandmother's Hands"</h3>
+                            <div class="artwork-meta">
+                                <span class="artist-name">Emma Chen</span>
+                                <span>Grade 12</span>
+                            </div>
+                            <p class="artwork-description-short">
+                                A touching portrait study focusing on the wisdom and stories told through weathered hands.
+                            </p>
+                            <div class="card-bid-info">
+                                <span class="starting-bid">Starting: $65</span>
+                                <span class="medium">Charcoal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artwork Card 3 -->
+                    <div class="artwork-card fade-in-up">
+                        <div class="artwork-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=280&fit=crop" alt="Landscape painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                        </div>
+                        <div class="artwork-details">
+                            <h3 class="artwork-title">"Mountain Reflection"</h3>
+                            <div class="artwork-meta">
+                                <span class="artist-name">David Park</span>
+                                <span>Grade 10</span>
+                            </div>
+                            <p class="artwork-description-short">
+                                A serene landscape capturing the perfect mirror image of mountains in a still alpine lake.
+                            </p>
+                            <div class="card-bid-info">
+                                <span class="starting-bid">Starting: $50</span>
+                                <span class="medium">Oil Paint</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artwork Card 4 -->
+                    <div class="artwork-card fade-in-up">
+                        <div class="artwork-image">
+                            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=280&fit=crop" alt="Still life painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                        </div>
+                        <div class="artwork-details">
+                            <h3 class="artwork-title">"Fruit & Shadows"</h3>
+                            <div class="artwork-meta">
+                                <span class="artist-name">Maria Rodriguez</span>
+                                <span>Grade 11</span>
+                            </div>
+                            <p class="artwork-description-short">
+                                A classical still life study demonstrating mastery of light, shadow, and realistic rendering.
+                            </p>
+                            <div class="card-bid-info">
+                                <span class="starting-bid">Starting: $40</span>
+                                <span class="medium">Acrylic</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artwork Card 5 -->
+                    <div class="artwork-card fade-in-up">
+                        <div class="artwork-image">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=280&fit=crop" alt="Mixed media artwork" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                        </div>
+                        <div class="artwork-details">
+                            <h3 class="artwork-title">"Digital Dreams"</h3>
+                            <div class="artwork-meta">
+                                <span class="artist-name">Jordan Kim</span>
+                                <span>Grade 12</span>
+                            </div>
+                            <p class="artwork-description-short">
+                                An innovative mixed media piece exploring the intersection of traditional art and digital culture.
+                            </p>
+                            <div class="card-bid-info">
+                                <span class="starting-bid">Starting: $55</span>
+                                <span class="medium">Mixed Media</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Artwork Card 6 -->
+                    <div class="artwork-card fade-in-up">
+                        <div class="artwork-image">
+                            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=280&fit=crop" alt="Sculpture photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                        </div>
+                        <div class="artwork-details">
+                            <h3 class="artwork-title">"Unity in Clay"</h3>
+                            <div class="artwork-meta">
+                                <span class="artist-name">Ashley Brown</span>
+                                <span>Grade 9</span>
+                            </div>
+                            <p class="artwork-description-short">
+                                A sculptural piece representing community and connection through intertwined ceramic forms.
+                            </p>
+                            <div class="card-bid-info">
+                                <span class="starting-bid">Starting: $60</span>
+                                <span class="medium">Ceramic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" id="contact">
+                    <h4>How to Bid</h4>
+                    <p>Email: artauction@school.edu</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Visit us during school hours to view pieces in person</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Auction Details</h4>
+                    <p>Bidding: March 15-22, 2026</p>
+                    <p>Pickup: March 25-29, 2026</p>
+                    <p>Payment: Cash, Check, or Card accepted</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Mission</h4>
+                    <p>Supporting young artists while giving back to our community. Together, we create a brighter future through art and compassion.</p>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #4a3c33; color: #c5b8a8;">
+                © 2026 Student Art Auction. Made with ❤️ for our amazing artists and community.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.artwork-card, .featured-artwork').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
