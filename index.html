@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Third Annual Student Art Auction</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>CIS Student Art Auction 2026 | Cambridge International School</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #186aed;
-            --secondary-color: #061938;
-            --accent-color: #d4af37;
-            --background-light: #faf8f5;
+            --cis-red: #d73527;
+            --cis-blue: #1e3a8a;
+            --cis-yellow: #fbbf24;
+            --cis-dark-blue: #1e40af;
+            --cis-light-blue: #3b82f6;
             --background-white: #ffffff;
-            --text-primary: #2c1810;
-            --text-secondary: #6b5b4f;
-            --border-color: #e8e1d8;
-            --shadow: 0 8px 32px rgba(44, 24, 16, 0.1);
-            --shadow-hover: 0 12px 48px rgba(44, 24, 16, 0.15);
+            --background-light: #f8fafc;
+            --background-gray: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -29,120 +34,214 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
-            background: linear-gradient(135deg, var(--background-light) 0%, var(--background-white) 100%);
-            min-height: 100vh;
+            background: var(--background-white);
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
         /* Header */
         header {
-            background: var(--background-white);
-            box-shadow: var(--shadow);
+            background: var(--cis-red);
+            color: white;
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-lg);
         }
 
         .header-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1.5rem 0;
+            padding: 1rem 0;
         }
 
-        .logo h1 {
-            font-family: 'Crimson Text', serif;
-            font-size: 2.2rem;
+        .school-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--cis-red);
+            font-size: 1.2rem;
+        }
+
+        .school-info h1 {
+            font-size: 1.5rem;
             font-weight: 600;
-            color: var(--primary-color);
-            letter-spacing: -0.02em;
+            margin-bottom: 0.2rem;
         }
 
-        .logo p {
+        .school-info p {
             font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: -0.2rem;
-            font-weight: 300;
+            opacity: 0.9;
         }
 
-        .auction-info {
+        .header-contact {
             text-align: right;
+            font-size: 0.9rem;
         }
 
-        .auction-info p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+        .header-contact p {
             margin-bottom: 0.25rem;
-        }
-
-        .contact-btn {
-            background: var(--accent-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 0.9rem;
-        }
-
-        .contact-btn:hover {
-            background: #b8941f;
-            transform: translateY(-1px);
+            opacity: 0.95;
         }
 
         /* Hero Section */
         .hero {
-            padding: 4rem 0 3rem;
+            background: linear-gradient(135deg, var(--cis-blue) 0%, var(--cis-dark-blue) 100%);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            background: var(--background-white);
         }
 
         .hero h1 {
             font-family: 'Crimson Text', serif;
             font-size: 3.5rem;
             font-weight: 600;
-            color: var(--primary-color);
             margin-bottom: 1rem;
             line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
             max-width: 600px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .charity-banner {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            color: white;
+        .event-details {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .event-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--cis-yellow);
+        }
+
+        .event-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .event-info-item {
+            text-align: left;
+        }
+
+        .event-info-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--cis-yellow);
+        }
+
+        .event-info-item p {
+            opacity: 0.9;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background: var(--background-light);
+            padding: 4rem 0;
+        }
+
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mission-text h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            color: var(--cis-blue);
+            margin-bottom: 1rem;
+        }
+
+        .mission-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .value-item {
+            background: white;
             padding: 1.5rem;
             border-radius: 12px;
-            max-width: 500px;
-            margin: 0 auto;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--cis-yellow);
+            transition: transform 0.3s ease;
         }
 
-        .charity-banner h3 {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.3rem;
+        .value-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .value-item h4 {
+            color: var(--cis-blue);
+            font-weight: 600;
             margin-bottom: 0.5rem;
+        }
+
+        .value-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
         /* Featured Artwork */
         .featured-section {
             padding: 4rem 0;
-            background: var(--background-light);
+            background: white;
         }
 
         .section-title {
@@ -150,28 +249,22 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--primary-color);
+            color: var(--cis-blue);
         }
 
         .featured-artwork {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
-            margin-bottom: 3rem;
         }
 
         .featured-image {
             position: relative;
             overflow: hidden;
             border-radius: 16px;
-            box-shadow: var(--shadow);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .featured-image:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-xl);
+            border: 4px solid var(--cis-yellow);
         }
 
         .featured-image img {
@@ -185,49 +278,49 @@
             transform: scale(1.05);
         }
 
-        .featured-info {
-            padding: 2rem;
-        }
-
         .featured-info h3 {
             font-family: 'Crimson Text', serif;
             font-size: 2rem;
+            color: var(--cis-blue);
             margin-bottom: 0.5rem;
-            color: var(--primary-color);
         }
 
         .artist-info {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
+            color: var(--cis-red);
+            font-weight: 500;
             margin-bottom: 1.5rem;
         }
 
         .artwork-description {
             font-size: 1.1rem;
+            color: var(--text-primary);
             line-height: 1.7;
             margin-bottom: 2rem;
-            color: var(--text-primary);
         }
 
-        .bid-info {
-            background: var(--background-white);
+        .price-info {
+            background: var(--background-gray);
             padding: 1.5rem;
             border-radius: 12px;
-            border: 2px solid var(--accent-color);
+            border-left: 4px solid var(--cis-yellow);
         }
 
-        .bid-amount {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--accent-color);
+        .price-info h4 {
+            color: var(--cis-blue);
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
 
-        /* Gallery Grid */
+        .price {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--cis-red);
+        }
+
+        /* Gallery */
         .gallery-section {
             padding: 4rem 0;
-            background: var(--background-white);
+            background: var(--background-light);
         }
 
         .gallery-grid {
@@ -238,34 +331,34 @@
         }
 
         .artwork-card {
-            background: var(--background-white);
+            background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.4s ease;
-            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--cis-red);
         }
 
         .artwork-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
         }
 
         .artwork-image {
             position: relative;
             overflow: hidden;
-            height: 280px;
+            height: 250px;
         }
 
         .artwork-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease;
         }
 
         .artwork-card:hover .artwork-image img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .artwork-details {
@@ -275,33 +368,38 @@
         .artwork-title {
             font-family: 'Crimson Text', serif;
             font-size: 1.4rem;
-            font-weight: 600;
+            color: var(--cis-blue);
             margin-bottom: 0.5rem;
-            color: var(--primary-color);
         }
 
         .artwork-meta {
             display: flex;
-            justify-content: between;
+            justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
         }
 
         .artist-name {
+            color: var(--cis-red);
             font-weight: 500;
-            color: var(--secondary-color);
+        }
+
+        .grade {
+            background: var(--cis-yellow);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
         .artwork-description-short {
-            font-size: 0.95rem;
-            line-height: 1.5;
+            color: var(--text-secondary);
             margin-bottom: 1rem;
-            color: var(--text-primary);
+            line-height: 1.5;
         }
 
-        .card-bid-info {
+        .card-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -309,26 +407,85 @@
             border-top: 1px solid var(--border-color);
         }
 
-        .starting-bid {
+        .starting-price {
+            color: var(--cis-red);
             font-weight: 600;
-            color: var(--accent-color);
             font-size: 1.1rem;
         }
 
         .medium {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
             background: var(--background-light);
+            color: var(--text-secondary);
             padding: 0.25rem 0.75rem;
-            border-radius: 20px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Charity Partners */
+        .charity-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .charity-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .charity-content h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            color: var(--cis-blue);
+            margin-bottom: 2rem;
+        }
+
+        .charity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .charity-card {
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--cis-yellow);
+            box-shadow: var(--shadow);
+        }
+
+        .charity-card h3 {
+            color: var(--cis-red);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .charity-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .charity-impact {
+            background: var(--cis-blue);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .charity-impact h3 {
+            color: var(--cis-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
+            background: var(--cis-blue);
             color: white;
-            padding: 3rem 0;
-            text-align: center;
+            padding: 3rem 0 1rem;
         }
 
         .footer-content {
@@ -339,20 +496,27 @@
         }
 
         .footer-section h4 {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.3rem;
+            color: var(--cis-yellow);
+            font-size: 1.2rem;
             margin-bottom: 1rem;
-            color: var(--accent-color);
         }
 
         .footer-section p, .footer-section a {
-            color: #e8e1d8;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             line-height: 1.6;
+            margin-bottom: 0.5rem;
         }
 
         .footer-section a:hover {
-            color: var(--accent-color);
+            color: var(--cis-yellow);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* Responsive Design */
@@ -371,22 +535,27 @@
                 font-size: 2.5rem;
             }
 
+            .mission-content,
             .featured-artwork {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .gallery-grid {
+            .values-grid {
                 grid-template-columns: 1fr;
             }
 
-            .footer-content {
+            .event-info {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* Animation on scroll */
+        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -398,26 +567,8 @@
             }
         }
 
-        .fade-in-up {
+        .animate-on-scroll {
             animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--background-light);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--secondary-color);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-color);
         }
     </style>
 </head>
@@ -425,13 +576,16 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <h1>CIS Student Art Auction 2026</h1>
-                    <p>Third Annual Exhibition</p>
+                <div class="school-logo">
+                    <div class="logo-placeholder">CIS</div>
+                    <div class="school-info">
+                        <h1>Cambridge International School</h1>
+                        <p>Student Art Auction 2026</p>
+                    </div>
                 </div>
-                <div class="auction-info">
-                    <p><strong>Date of the Event:</strong> April 20, 2026</p>
-                    <p><strong>Address:</strong> School Gallery St. 34343</p>
+                <div class="header-contact">
+                    <p><strong>+7 800 551 43 25</strong></p>
+                    <p>info@cis-school.com</p>
                 </div>
             </div>
         </div>
@@ -440,33 +594,83 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Young Artists, Big Dreams</h1>
-                <p>Discover extraordinary creativity from our talented students. Every purchase supports both emerging artists and our community charity partner.</p>
-                <div class="charity-banner">
-                    <h3>Supporting 3,14 Charity</h3>
-                    <p>20% of proceeds benefit our students, 80% goes to the Community Food Bank to help families in need.</p>
+                <div class="hero-content">
+                    <h1>Annual Student Art Auction</h1>
+                    <p class="hero-subtitle">Celebrating creativity, building character, and supporting our community through the transformative power of student art</p>
+                    
+                    <div class="event-details">
+                        <h3>Join Us for an Evening of Art & Impact</h3>
+                        <div class="event-info">
+                            <div class="event-info-item">
+                                <h4>📅 Event Date</h4>
+                                <p><strong>Saturday, March 22, 2026</strong><br>
+                                6:00 PM - 9:00 PM</p>
+                            </div>
+                            <div class="event-info-item">
+                                <h4>📍 Location</h4>
+                                <p><strong>CIS Main Campus</strong><br>
+                                Art Gallery & Auditorium<br>
+                                123 Education Boulevard<br>
+                                Tashkent, Uzbekistan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission-section">
+            <div class="container">
+                <div class="mission-content">
+                    <div class="mission-text">
+                        <h2>Our Mission Through Art</h2>
+                        <p><em>"To develop our community in an inspiring learning environment"</em></p>
+                        <p>This auction embodies our commitment to positive social impact through holistic education. Every artwork showcases not just talent, but the character development and continuous learning that defines our students.</p>
+                        
+                        <div class="values-grid">
+                            <div class="value-item">
+                                <h4>Care</h4>
+                                <p>Supporting both our artists and community through meaningful giving</p>
+                            </div>
+                            <div class="value-item">
+                                <h4>Collaboration</h4>
+                                <p>Students, families, and partners working together for impact</p>
+                            </div>
+                            <div class="value-item">
+                                <h4>Continuous Learning</h4>
+                                <p>Every brushstroke represents growth and creative exploration</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mission-visual">
+                        <div style="background: linear-gradient(135deg, var(--cis-blue), var(--cis-red)); height: 300px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; text-align: center; box-shadow: var(--shadow-xl);">
+                            <div>
+                                <h3 style="color: var(--cis-yellow); margin-bottom: 1rem;">Building Character</h3>
+                                <p>Through Creative Expression</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="featured-section">
             <div class="container">
-                <h2 class="section-title">Featured Artwork</h2>
-                <div class="featured-artwork fade-in-up">
+                <h2 class="section-title">Featured Masterpiece</h2>
+                <div class="featured-artwork">
                     <div class="featured-image">
-                        <img src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=600&h=400&fit=crop" alt="Featured artwork" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                        <img src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=600&h=400&fit=crop" alt="Featured artwork" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkZlYXR1cmVkIEFydHdvcms8L3RleHQ+Cjwvc3ZnPg=='" />
                     </div>
                     <div class="featured-info">
-                        <h3>"Ocean Dreams"</h3>
-                        <div class="artist-info">
-                            <strong>Sarah Martinez</strong> • Grade 11 • Acrylic on Canvas
-                        </div>
+                        <h3>"Dreams of Tomorrow"</h3>
+                        <div class="artist-info">Sarah Martinez • Grade 11 • Acrylic on Canvas</div>
                         <p class="artwork-description">
-                            A stunning seascape that captures the movement and energy of ocean waves through bold brushstrokes and a vibrant color palette. Sarah's technique shows remarkable maturity and emotional depth.
+                            A stunning representation of hope and ambition, this piece captures Sarah's vision of a sustainable future. The vibrant colors and dynamic composition demonstrate both technical skill and emotional depth, reflecting our school's commitment to developing thoughtful global citizens.
                         </p>
-                        <div class="bid-info">
-                            <div class="bid-amount">Starting Bid: $85</div>
-                            <p>This piece represents hours of careful observation and artistic growth. A true centerpiece for any collection.</p>
+                        <div class="price-info">
+                            <h4>Opening Bid (Live Auction Only)</h4>
+                            <div class="price">$150</div>
+                            <p style="margin-top: 0.5rem; color: var(--text-secondary);">All bids must be placed in person during the auction event</p>
                         </div>
                     </div>
                 </div>
@@ -475,132 +679,154 @@
 
         <section class="gallery-section">
             <div class="container">
-                <h2 class="section-title">All Artworks</h2>
+                <h2 class="section-title">Student Gallery</h2>
                 <div class="gallery-grid">
-                    <!-- Artwork Card 1 -->
-                    <div class="artwork-card fade-in-up">
+                    <div class="artwork-card">
                         <div class="artwork-image">
-                            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=280&fit=crop" alt="Abstract painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=250&fit=crop" alt="Abstract painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
                         </div>
                         <div class="artwork-details">
-                            <h3 class="artwork-title">"City Lights"</h3>
+                            <h3 class="artwork-title">"Urban Harmony"</h3>
                             <div class="artwork-meta">
                                 <span class="artist-name">Alex Johnson</span>
-                                <span>Grade 9</span>
+                                <span class="grade">Grade 9</span>
                             </div>
                             <p class="artwork-description-short">
-                                An abstract interpretation of urban nightlife using bold geometric shapes and neon-inspired colors.
+                                An abstract interpretation of city life, showcasing the balance between chaos and order in modern urban environments.
                             </p>
-                            <div class="card-bid-info">
-                                <span class="starting-bid">Starting: $45</span>
+                            <div class="card-bottom">
+                                <span class="starting-price">Opening: $85</span>
                                 <span class="medium">Watercolor</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Artwork Card 2 -->
-                    <div class="artwork-card fade-in-up">
+                    <div class="artwork-card">
                         <div class="artwork-image">
-                            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=280&fit=crop" alt="Portrait painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=250&fit=crop" alt="Portrait painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
                         </div>
                         <div class="artwork-details">
-                            <h3 class="artwork-title">"Grandmother's Hands"</h3>
+                            <h3 class="artwork-title">"Wisdom Lines"</h3>
                             <div class="artwork-meta">
                                 <span class="artist-name">Emma Chen</span>
-                                <span>Grade 12</span>
+                                <span class="grade">Grade 12</span>
                             </div>
                             <p class="artwork-description-short">
-                                A touching portrait study focusing on the wisdom and stories told through weathered hands.
+                                A powerful portrait study exploring the stories written in human expressions and the beauty of lived experience.
                             </p>
-                            <div class="card-bid-info">
-                                <span class="starting-bid">Starting: $65</span>
+                            <div class="card-bottom">
+                                <span class="starting-price">Opening: $120</span>
                                 <span class="medium">Charcoal</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Artwork Card 3 -->
-                    <div class="artwork-card fade-in-up">
+                    <div class="artwork-card">
                         <div class="artwork-image">
-                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=280&fit=crop" alt="Landscape painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop" alt="Landscape painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
                         </div>
                         <div class="artwork-details">
-                            <h3 class="artwork-title">"Mountain Reflection"</h3>
+                            <h3 class="artwork-title">"Tian Shan Majesty"</h3>
                             <div class="artwork-meta">
                                 <span class="artist-name">David Park</span>
-                                <span>Grade 10</span>
+                                <span class="grade">Grade 10</span>
                             </div>
                             <p class="artwork-description-short">
-                                A serene landscape capturing the perfect mirror image of mountains in a still alpine lake.
+                                Capturing the breathtaking beauty of Uzbekistan's mountain landscapes with masterful attention to light and atmosphere.
                             </p>
-                            <div class="card-bid-info">
-                                <span class="starting-bid">Starting: $50</span>
+                            <div class="card-bottom">
+                                <span class="starting-price">Opening: $95</span>
                                 <span class="medium">Oil Paint</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Artwork Card 4 -->
-                    <div class="artwork-card fade-in-up">
+                    <div class="artwork-card">
                         <div class="artwork-image">
-                            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=280&fit=crop" alt="Still life painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                            <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=250&fit=crop" alt="Still life painting" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
                         </div>
                         <div class="artwork-details">
-                            <h3 class="artwork-title">"Fruit & Shadows"</h3>
+                            <h3 class="artwork-title">"Heritage Vessels"</h3>
                             <div class="artwork-meta">
                                 <span class="artist-name">Maria Rodriguez</span>
-                                <span>Grade 11</span>
+                                <span class="grade">Grade 11</span>
                             </div>
                             <p class="artwork-description-short">
-                                A classical still life study demonstrating mastery of light, shadow, and realistic rendering.
+                                A classical still life celebrating Uzbek ceramics, demonstrating technical precision and cultural appreciation.
                             </p>
-                            <div class="card-bid-info">
-                                <span class="starting-bid">Starting: $40</span>
+                            <div class="card-bottom">
+                                <span class="starting-price">Opening: $75</span>
                                 <span class="medium">Acrylic</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Artwork Card 5 -->
-                    <div class="artwork-card fade-in-up">
+                    <div class="artwork-card">
                         <div class="artwork-image">
-                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=280&fit=crop" alt="Mixed media artwork" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop" alt="Mixed media artwork" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3VnPg=='" />
                         </div>
                         <div class="artwork-details">
-                            <h3 class="artwork-title">"Digital Dreams"</h3>
+                            <h3 class="artwork-title">"Connected World"</h3>
                             <div class="artwork-meta">
                                 <span class="artist-name">Jordan Kim</span>
-                                <span>Grade 12</span>
+                                <span class="grade">Grade 12</span>
                             </div>
                             <p class="artwork-description-short">
-                                An innovative mixed media piece exploring the intersection of traditional art and digital culture.
+                                An innovative exploration of global connectivity, blending traditional techniques with contemporary themes.
                             </p>
-                            <div class="card-bid-info">
-                                <span class="starting-bid">Starting: $55</span>
+                            <div class="card-bottom">
+                                <span class="starting-price">Opening: $110</span>
                                 <span class="medium">Mixed Media</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Artwork Card 6 -->
-                    <div class="artwork-card fade-in-up">
+                    <div class="artwork-card">
                         <div class="artwork-image">
-                            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=280&fit=crop" alt="Sculpture photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
+                            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=250&fit=crop" alt="Sculpture photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+CiAgPHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkFydHdvcmsgSW1hZ2U8L3RleHQ+Cjwvc3ZnPg=='" />
                         </div>
                         <div class="artwork-details">
-                            <h3 class="artwork-title">"Unity in Clay"</h3>
+                            <h3 class="artwork-title">"Bonds of Unity"</h3>
                             <div class="artwork-meta">
                                 <span class="artist-name">Ashley Brown</span>
-                                <span>Grade 9</span>
+                                <span class="grade">Grade 9</span>
                             </div>
                             <p class="artwork-description-short">
-                                A sculptural piece representing community and connection through intertwined ceramic forms.
+                                A sculptural representation of community and collaboration, reflecting our core values through artistic form.
                             </p>
-                            <div class="card-bid-info">
-                                <span class="starting-bid">Starting: $60</span>
+                            <div class="card-bottom">
+                                <span class="starting-price">Opening: $90</span>
                                 <span class="medium">Ceramic</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="charity-section">
+            <div class="container">
+                <div class="charity-content">
+                    <h2>Our Charity Partners</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                        In alignment with our mission of positive social impact, 60% of all proceeds directly support local organizations making a difference in our community.
+                    </p>
+                    
+                    <div class="charity-grid">
+                        <div class="charity-card">
+                            <h3>Tashkent Children's Educational Foundation</h3>
+                            <p>Providing educational resources and learning opportunities for underprivileged children in our city. Their programs focus on literacy, STEM education, and creative arts - perfectly aligned with our educational mission.</p>
+                        </div>
+                        
+                        <div class="charity-card">
+                            <h3>Uzbekistan Community Food Network</h3>
+                            <p>Addressing food insecurity across Uzbekistan by establishing sustainable food distribution centers and educational programs about nutrition and healthy living.</p>
+                        </div>
+                    </div>
+
+                    <div class="charity-impact">
+                        <h3>Expected Impact</h3>
+                        <p>This year's auction aims to raise <strong>$15,000+</strong> to support these vital community programs while recognizing and rewarding our talented student artists for their creativity and hard work.</p>
                     </div>
                 </div>
             </div>
@@ -610,53 +836,48 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section" id="contact">
-                    <h4>How to Bid</h4>
-                    <p>Email: artauction@school.edu</p>
-                    <p>Phone: (555) 123-4567</p>
-                    <p>Visit us during school hours to view pieces in person</p>
+                <div class="footer-section">
+                    <h4>Event Information</h4>
+                    <p><strong>Date:</strong> Saturday, March 22, 2026</p>
+                    <p><strong>Time:</strong> 6:00 PM - 9:00 PM</p>
+                    <p><strong>Location:</strong> CIS Main Campus</p>
+                    <p>123 Education Boulevard</p>
+                    <p>Tashkent, Uzbekistan</p>
                 </div>
+                
                 <div class="footer-section">
                     <h4>Auction Details</h4>
-                    <p>Bidding: March 15-22, 2026</p>
-                    <p>Pickup: March 25-29, 2026</p>
-                    <p>Payment: Cash, Check, or Card accepted</p>
+                    <p>• Live bidding only during event</p>
+                    <p>• Preview viewing: 6:00-6:30 PM</p>
+                    <p>• Auction begins: 6:30 PM</p>
+                    <p>• Payment: Cash, card, or check</p>
+                    <p>• Artwork pickup: Same evening</p>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Our Mission</h4>
-                    <p>Supporting young artists while giving back to our community. Together, we create a brighter future through art and compassion.</p>
+                    <h4>Contact Us</h4>
+                    <p>Phone: +7 800 551 43 25</p>
+                    <p>Email: artauction@cis-school.com</p>
+                    <p>Website: www.cis-school.com</p>
+                    <br>
+                    <p><strong>Art Department</strong></p>
+                    <p>Ms. Elena Petrov, Art Director</p>
+                    <p>elena.petrov@cis-school.com</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Our Values in Action</h4>
+                    <p>"Every child is unique" - This auction celebrates the individual artistic voice of each student while building community connections through shared appreciation of creativity.</p>
                 </div>
             </div>
-            <p style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #4a3c33; color: #c5b8a8;">
-                © 2026 Student Art Auction. Made with ❤️ for our amazing artists and community.
-            </p>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Cambridge International School. Building character through holistic education.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Simple scroll animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards for animation
-        document.querySelectorAll('.artwork-card, .featured-artwork').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'all 0.6s ease-out';
-            observer.observe(card);
-        });
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -669,6 +890,25 @@
                     });
                 }
             });
+        });
+
+        // Simple scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards and sections for animation
+        document.querySelectorAll('.artwork-card, .value-item, .charity-card').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
